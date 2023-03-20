@@ -9,7 +9,7 @@ export default function Home({ data }) {
 
 	return (
 		<>
-			<div className="p-10 grid grid-cols-2 sm:grid-cols-5 justify-evenly">
+			<div className="p-10 grid grid-cols-2 md:grid-cols-5 sm:grid-cols-4 justify-evenly">
 				{data.Page.media.map((anime) => (
 					<div key={anime.id} className="p-2 mb-2">
 						<Image
