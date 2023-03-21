@@ -17,8 +17,8 @@ export default function Navbar() {
 
 	return (
 		<>
-			<div className="flex p-10 justify-between bg-slate-200 bg-gradient-to-r from-green-300 to-green-500 dark:from-gray-500 dark:to-gray-900">
-				<h1 className="hover:drop-shadow-lg dark:hover:text-white hover:text-5xl transition-all duration-150 ease-out hover:ease-infont-semibold text-4xl text-white drop-shadow-md m-auto">
+			<div className="sticky top-0 z-50 flex p-10 justify-between bg-slate-200 bg-gradient-to-r from-green-300 to-green-500 dark:from-gray-500 dark:to-gray-900">
+				<h1 className="hover:drop-shadow-lg dark:hover:text-white sm:hover:text-5xl transition-all duration-150 ease-out sm:hover:ease-infont-semibold text-4xl text-white drop-shadow-md m-auto">
 					<Link href="/">Anime List</Link>
 				</h1>
 				<select
