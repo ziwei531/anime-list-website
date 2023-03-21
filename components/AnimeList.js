@@ -76,7 +76,7 @@ export default function AnimeList({ selection }) {
 	return (
 		<>
 			<div className="p-10 grid grid-cols-2 md:grid-cols-5 sm:grid-cols-4 justify-evenly">
-				{data.Page.media.map((anime) => (
+				{data.Page.media.map((anime, index) => (
 					<div key={anime.id} className="p-2 mb-2">
 						<Image
 							src={anime.coverImage.extraLarge}
@@ -85,8 +85,11 @@ export default function AnimeList({ selection }) {
 							height={300}
 							className="rounded-lg shadow-lg ease-in transition-all duration-150 sm:hover:scale-110 sm:hover:ease-infont shadow-gray-500 hover:shadow-gray-700 cursor-pointer dark:shadow-blue-500 dark:hover:shadow-blue-700"
 						/>
-						<h3 className="mt-2 truncate text-center">
+						<h3 className="mt-2 md:text-xl sm:text-lg truncate text-center">
 							{anime.title.userPreferred}
+						</h3>
+						<h3 className="mt-2 md:text-2xl sm:text-xl text-center">
+							#{index + 1}
 						</h3>
 					</div>
 				))}
