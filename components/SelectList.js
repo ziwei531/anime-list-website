@@ -27,7 +27,7 @@ export default function SelectList(props) {
 			>
 				<select
 					defaultValue={"TRENDING_DESC"}
-					className="w-3/5 text-sm md:text-lg text-center cursor-pointer p-5 border dark:border-none drop-shadow-lg rounded-md"
+					className="w-3/5 sm:w-auto text-sm md:text-lg text-center cursor-pointer p-5 border dark:border-none drop-shadow-lg rounded-md"
 				>
 					<option value="SCORE_DESC">HIGHEST SCORING ANIME</option>
 					{/* <option value="SCORE">Sort by Most Lowest Score</option> */}
