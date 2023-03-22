@@ -58,15 +58,15 @@ export default function Description() {
 	if (error) return <p>Error: {error.message}</p>;
 	return (
 		<>
-			<div className="p-10 align-middle flex flex-col sm:flex-row justify-center">
+			<div className="p-10 align-middle flex flex-col lg:flex-row ">
 				<Image
 					width={300}
 					height={300}
 					alt={data.title}
 					src={data.Media.coverImage.extraLarge}
-					className="rounded-lg h-90 mx-auto"
+					className="rounded-lg mx-auto"
 				/>
-				<div className="pt-10 pb-10 pl-20 pr-20">
+				<div className="pt-10 pb-10 pl-5 pr-5 md:pl-20 md:pr-20">
 					<h1 className="text-2xl">Description</h1>
 					<p className="leading-8">{ReactHtmlParser(data.Media.description)}</p>
 				</div>
