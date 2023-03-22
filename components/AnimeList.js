@@ -57,7 +57,6 @@ function findNextSeason(curSeason) {
 }
 
 function query(selection) {
-	console.log(typeof selection);
 	let QUERY;
 	const currentYear = new Date().getFullYear();
 	const currentSeason = checkSeason();
@@ -138,9 +137,6 @@ export default function AnimeList({ selection }) {
 		variables: { page: 1, perPage: PER_PAGE },
 	});
 
-	console.log("selection: " + selection);
-	console.log(data);
-
 	const handleFetchMore = () => {
 		fetchMore({
 			variables: {
@@ -150,7 +146,6 @@ export default function AnimeList({ selection }) {
 			updateQuery: (prevResult, { fetchMoreResult }) => {
 				if (!fetchMoreResult) return prevResult;
 
-				console.log(...fetchMoreResult.Page.media);
 				return {
 					Page: {
 						__typename: "Page",
