@@ -1,6 +1,7 @@
 import Loading from "./loading";
 import Image from "next/image";
 import { useQuery, gql } from "@apollo/client";
+import Link from "next/link";
 
 /*
 
@@ -11,8 +12,101 @@ const { loading, error, data, fetchMore } = useQuery(QUERY, {
     
 */
 
+function checkSeason() {
+	const currentMonth = new Date().getMonth();
+
+	let season;
+	//december until february
+	if ((currentMonth >= 0 && currentMonth <= 1) || currentMonth === 11) {
+		season = "WINTER";
+	} else if (currentMonth >= 2 && currentMonth <= 4) {
+		season = "SPRING";
+	} else if (currentMonth >= 5 && currentMonth <= 7) {
+		season = "SUMMER";
+	} else if (currentMonth >= 8 && currentMonth <= 10) {
+		season = "FALL";
+	}
+	return season;
+}
+
+function findNextSeason(curSeason) {
+	/*
+	WINTER
+	Months December to February
+
+	SPRING
+	Months March to May
+
+	SUMMER
+	Months June to August
+
+	FALL
+	Months September to November
+	*/
+	let nextSeason;
+	if (curSeason === "WINTER") {
+		nextSeason = "SPRING";
+	} else if (curSeason === "SPRING") {
+		nextSeason = "SUMMER";
+	} else if (curSeason === "SUMMER") {
+		nextSeason = "FALL";
+	} else if (curSeason === "FALL") {
+		nextSeason = "WINTER";
+	}
+	return nextSeason;
+}
+
 function query(selection) {
-	const QUERY = gql`
+	console.log(typeof selection);
+	let QUERY;
+	const currentYear = new Date().getFullYear();
+	const currentSeason = checkSeason();
+	const nextSeason = findNextSeason(currentSeason);
+
+	// if either PTS and PUS, need a different way of querying it.
+	// PUS = Popular Upcoming Season, PTS = Popular This Season
+	if (selection === "PUS") {
+		QUERY = gql`
+		query GetAnime($page: Int!, $perPage: Int!) {
+			Page(page: $page, perPage: $perPage) {
+				pageInfo {
+					hasNextPage
+					currentPage
+				}
+				media(type: ANIME, sort: POPULARITY_DESC, season: ${nextSeason}, seasonYear: ${currentYear}) {
+					id
+					title {
+						userPreferred
+					}
+					coverImage {
+						extraLarge
+					}
+				}
+			}
+		}
+	`;
+	} else if (selection === "PTS") {
+		QUERY = gql`
+		query GetAnime($page: Int!, $perPage: Int!) {
+			Page(page: $page, perPage: $perPage) {
+				pageInfo {
+					hasNextPage
+					currentPage
+				}
+				media(type: ANIME, sort: POPULARITY_DESC, season: ${currentSeason}, seasonYear: ${currentYear}) {
+					id
+					title {
+						userPreferred
+					}
+					coverImage {
+						extraLarge
+					}
+				}
+			}
+		}
+	`;
+	} else {
+		QUERY = gql`
 		query GetAnime($page: Int!, $perPage: Int!) {
 			Page(page: $page, perPage: $perPage) {
 				pageInfo {
@@ -31,21 +125,21 @@ function query(selection) {
 			}
 		}
 	`;
+	}
 
 	return QUERY;
 }
 
 export default function AnimeList({ selection }) {
-	// console.log("Inside AnimeList " + selection);
-
 	const QUERY = query(selection);
-
-	console.log(QUERY);
 
 	const PER_PAGE = 50;
 	const { loading, error, data, fetchMore } = useQuery(QUERY, {
 		variables: { page: 1, perPage: PER_PAGE },
 	});
+
+	console.log("selection: " + selection);
+	console.log(data);
 
 	const handleFetchMore = () => {
 		fetchMore({
@@ -77,21 +171,23 @@ export default function AnimeList({ selection }) {
 		<>
 			<div className="p-10 grid grid-cols-2 md:grid-cols-5 sm:grid-cols-4 justify-evenly">
 				{data.Page.media.map((anime, index) => (
-					<div key={anime.id} className="p-2 mb-2">
-						<Image
-							src={anime.coverImage.extraLarge}
-							alt={anime.title.userPreferred}
-							width={300}
-							height={300}
-							className="rounded-lg shadow-lg ease-in transition-all duration-150 sm:hover:scale-110 sm:hover:ease-infont shadow-gray-500 hover:shadow-gray-700 cursor-pointer dark:shadow-blue-500 dark:hover:shadow-blue-700"
-						/>
-						<h3 className="mt-2 md:text-xl sm:text-lg truncate text-center">
-							{anime.title.userPreferred}
-						</h3>
-						<h3 className="mt-2 md:text-2xl sm:text-xl text-center">
-							#{index + 1}
-						</h3>
-					</div>
+					<Link key={anime.id} href={`/anime/${anime.id}`}>
+						<div className="p-2 mb-2">
+							<Image
+								src={anime.coverImage.extraLarge}
+								alt={anime.title.userPreferred}
+								width={300}
+								height={300}
+								className="rounded-lg shadow-lg ease-in transition-all duration-150 sm:hover:scale-110 sm:hover:ease-infont shadow-gray-500 hover:shadow-gray-700 cursor-pointer dark:shadow-blue-500 dark:hover:shadow-blue-700"
+							/>
+							<h3 className="mt-2 md:text-xl sm:text-lg truncate text-center">
+								{anime.title.userPreferred}
+							</h3>
+							<h3 className="mt-2 md:text-2xl sm:text-xl text-center">
+								#{index + 1}
+							</h3>
+						</div>
+					</Link>
 				))}
 			</div>
 

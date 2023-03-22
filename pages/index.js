@@ -1,7 +1,4 @@
-import { Suspense, useState, useEffect } from "react";
-import Image from "next/image";
-import { useQuery, gql } from "@apollo/client";
-import Loading from "../components/loading";
+import { useState } from "react";
 import AnimeList from "../components/AnimeList";
 import ClientOnly from "../components/ClientOnly";
 import SelectList from "../components/SelectList";

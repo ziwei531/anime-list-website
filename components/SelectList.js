@@ -29,11 +29,15 @@ export default function SelectList(props) {
 					defaultValue={"TRENDING_DESC"}
 					className="text-center cursor-pointer p-5 border dark:border-none drop-shadow-lg rounded-md"
 				>
-					<option value="SCORE_DESC">Sort by Most Highest Score</option>
-					<option value="SCORE">Sort by Most Lowest Score</option>
-					<option value="POPULARITY_DESC">Sort by Most Popular</option>
-					<option value="POPULARITY">Sort by Least Popular</option>
-					<option value="TRENDING_DESC">Sort by Most Trending</option>
+					<option value="SCORE_DESC">HIGHEST SCORING ANIME</option>
+					{/* <option value="SCORE">Sort by Most Lowest Score</option> */}
+					<option value="POPULARITY_DESC">ALL TIME POPULAR</option>
+					<option value="POPULARITY">LEAST POPULAR ANIME</option>
+					<option value="TRENDING_DESC">TRENDING RIGHT NOW</option>
+					{/* PTS = Popular This Season */}
+					<option value="PTS">POPULAR THIS SEASON</option>
+					{/* PUS = Popular This Season */}
+					<option value="PUS">UPCOMING POPULAR ANIME FOR NEXT SEASON</option>
 				</select>
 			</div>
 		</>
