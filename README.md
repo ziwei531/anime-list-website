@@ -1,6 +1,6 @@
 # Anime List Application (similar to Anilist and Myanimelist)
 
-Progress: Still In Progress
+## Progress: Still In Progress
 
 Technologies Used:
 
