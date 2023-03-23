@@ -12,7 +12,7 @@ export default function CharacterList({ data }) {
 					<div
 						key={character.node.id}
 						className="
-                        card text-xs lg:text-base w-128 lg:w-128 max-w-sm mt-3 border dark:bg-gray-600 dark:border-slate-400 bg-green-100 border-green-800
+                        card text-xs lg:text-base w-96 lg:w-128 max-w-md mt-3 border dark:bg-gray-600 dark:border-slate-400 bg-green-100 border-green-800
                         flex md:flex-row mx-auto pt-3 pb-3
                         justify-around drop-shadow-lg rounded-md 
                         
