@@ -1,4 +1,4 @@
-# Anime List Application (similar to Anilist and Myanimelist)
+# A Simple Anime List Application 
 
 ## Progress: Still In Progress
 
