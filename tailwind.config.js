@@ -9,7 +9,11 @@ module.exports = {
 		"./src/**/*.{js,ts,jsx,tsx}",
 	],
 	theme: {
-		extend: {},
+		extend: {
+			width: {
+				128: "32rem",
+			},
+		},
 	},
 	plugins: [],
 	darkMode: ["class", '[data-theme="dark"]'],
