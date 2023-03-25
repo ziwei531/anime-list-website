@@ -132,7 +132,7 @@ function query(selection) {
 export default function AnimeList({ selection }) {
 	const QUERY = query(selection);
 
-	const PER_PAGE = 50;
+	const PER_PAGE = 20;
 	const { loading, error, data, fetchMore } = useQuery(QUERY, {
 		variables: { page: 1, perPage: PER_PAGE },
 	});
