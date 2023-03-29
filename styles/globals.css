@@ -6,3 +6,39 @@
 * {
 	font-family: "Poppins", sans-serif;
 }
+
+.card {
+	display: grid;
+	grid-template-columns: 50% 50%;
+	grid-template-areas: "character VA";
+}
+
+/* CHARACTER SECTION */
+.character {
+	grid-area: character;
+	display: grid;
+	grid-template-areas: "image name";
+}
+
+.image {
+	grid-area: image;
+}
+
+.name {
+	grid-area: name;
+}
+
+/* VA SECTION */
+.VA {
+	display: grid;
+	grid-area: VA;
+	grid-template-areas: "name image";
+}
+
+.VA .name {
+	grid-area: name;
+}
+
+.VA .image {
+	grid-area: image;
+}

@@ -12,31 +12,34 @@ export default function CharacterList({ data }) {
 					<div
 						key={character.node.id}
 						className="
-                        card text-xs lg:text-base w-96 lg:w-128 max-w-md mt-3 border dark:bg-gray-600 dark:border-slate-400 bg-green-100 border-green-800
-                        flex md:flex-row mx-auto pt-3 pb-3
-                        justify-around drop-shadow-lg rounded-md 
-                        
+                        card dark:bg-gray-600 dark:border-slate-400 bg-green-100 border-green-800
+                        mx-auto w-96 lg:w-128 gap-3 mt-3 border
+                        drop-shadow-lg rounded-md overflow-hidden
                     "
 					>
 						{/* Anime Character Section*/}
 
-						<Image
-							width={50}
-							height={50}
-							src={character.node.image.large}
-							alt={character.node.name.userPreferred}
-							className="rounded-lg w-16 lg:w-auto object-cover overflow-hidden block h-full"
-							onError={(e) => {
-								e.target.src = "../public/no_image.jpg";
-							}}
-						/>
-						<p className="">{character.node.name.userPreferred}</p>
+						<div className="character">
+							<Image
+								width={50}
+								height={50}
+								src={character.node.image.large}
+								alt={character.node.name.userPreferred}
+								className="image w-20 bg-center rounded-lg object-cover overflow-hidden h-full"
+								onError={(e) => {
+									e.target.src = "../public/no_image.jpg";
+								}}
+							/>
+							<p className="name break-all p-1">
+								{character.node.name.userPreferred}
+							</p>
+						</div>
 
 						{/* Voice Actor Section*/}
 
 						{character.voiceActors.length > 0 && (
-							<>
-								<p className="">
+							<div className="VA">
+								<p className="name text-sm break-all p-1">
 									{character.voiceActors[0].name.userPreferred}
 								</p>
 
@@ -45,12 +48,12 @@ export default function CharacterList({ data }) {
 									height={50}
 									src={character.voiceActors[0].image.medium}
 									alt={character.voiceActors[0].name.userPreferred}
-									className="rounded-lg w-16 lg:w-auto object-cover overflow-hidden block h-full"
+									className="image bg-center w-20 rounded-lg object-cover overflow-hidden h-full"
 									onError={(e) => {
 										e.target.src = "../public/no_image.jpg";
 									}}
 								/>
-							</>
+							</div>
 						)}
 					</div>
 				))}
