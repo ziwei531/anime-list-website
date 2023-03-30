@@ -84,7 +84,7 @@ const QUERY = gql`
 
 You can replace the Media's parameter depending on your needs. Take note that it's $id because I'm dynamically inputting the id. Normally, you'll need to pass a number type in order to have it work. 
 
-It will be dynamically passed in via useQuery 
+The id will be passed in via useQuery. If you are unfamiliar with this code snippet, you may consult the apollo's documentation website to familiarize yourself of what was done here. 
 ```javascript
 const { loading, error, data } = useQuery(QUERY, {
 	variables: { id: parseInt(animeID) },
