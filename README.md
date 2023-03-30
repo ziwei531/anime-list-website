@@ -18,9 +18,11 @@ It has both dark and light mode! Accomplished using tailwind
 - When anime is clicked, users will be redirected to the individual Descriptions of the anime
 
 
-# If you are in need of assistance with the API querying
-https://anilist.github.io/ApiV2-GraphQL-Docs/ <- General Docs for what the query parameters mean
-https://anilist.co/graphiql <- Playground for you to experiment and test out how you can construct your queries
+# If you are in need of assistance with the graphQL querying
+
+Understandably, anilist's querying tutorial/guide is not exactly widely available on the internet other than from their official documentation, which I find lacking. Hence, some especially beginners may find it difficult to implement their queries in a way that satisfies their needs. Hopefully my guide can assist a bit for those who chanced upon my repository. 
+1. https://anilist.github.io/ApiV2-GraphQL-Docs/ <- General Docs for what the query parameters mean
+2. https://anilist.co/graphiql <- Playground for you to experiment and test out how you can construct your queries
 
 For simple anime query via its id, my query looks like this. Take your time to decipher how the query's structure generally should be. 
 
