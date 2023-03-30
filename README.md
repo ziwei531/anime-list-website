@@ -94,7 +94,7 @@ const { loading, error, data } = useQuery(QUERY, {
 ```javascript
 Media(type: ANIME, id: 21) // this is for searching anime based on its ID
 
-Media (type: ANIME, search: "Blue Lock") //this is to search an anime based on string. Useful if you're implementating a search bar. 
+Media(type: ANIME, search: "Blue Lock") //this is to search an anime based on string. Useful if you're implementating a search bar. 
 ```
 
 
