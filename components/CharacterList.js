@@ -13,7 +13,7 @@ export default function CharacterList({ data }) {
 						key={character.node.id}
 						className="
                         card dark:bg-gray-600 dark:border-slate-400 bg-green-100 border-green-800
-                        mx-auto w-96 lg:w- gap-3 mt-3 border
+                        mx-auto w-96 gap-3 mt-3 border
                         drop-shadow-lg rounded-md overflow-hidden
                     "
 					>
