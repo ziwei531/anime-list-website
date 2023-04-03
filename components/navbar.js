@@ -13,6 +13,11 @@ export default function Navbar(props) {
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		props.search(searchRef.current);
+		const animeName = searchRef.current
+			.trim()
+			.replace(/\s+/g, "-")
+			.toLowerCase();
+		console.log(`"${animeName}"`);
 	};
 
 	const handleChange = (e) => {
@@ -39,10 +44,10 @@ export default function Navbar(props) {
 
 	return (
 		<>
-			<div
+			<nav
 				className={`${
 					visible ? "top-0" : ""
-				} sticky z-50 transition-all duration-150 ease-in-out flex p-10 justify-between items-center bg-slate-200 bg-gradient-to-r from-green-300 to-green-500 dark:from-gray-500 dark:to-gray-900`}
+				} sticky z-50 transition-all duration-150 ease-in-out p-10 grid place-content-center place-items-center grid-cols-1 text-center gap-3 md:grid-cols-3  bg-slate-200 bg-gradient-to-r from-green-300 to-green-500 dark:from-gray-500 dark:to-gray-900`}
 			>
 				{/* Logo */}
 				<h1 className="hover:drop-shadow-lg dark:hover:text-white sm:hover:text-5xl transition-all duration-150 ease-out sm:hover:ease-infont-semibold text-4xl text-white drop-shadow-md m-auto">
@@ -50,8 +55,13 @@ export default function Navbar(props) {
 				</h1>
 
 				{/* Search Bar */}
-				<form onSubmit={handleSubmit}>
-					<input onChange={handleChange} />
+				<form className="flex" onSubmit={handleSubmit}>
+					<input
+						className="p-3 rounded-l-md"
+						onChange={handleChange}
+						required
+						placeholder="Search Anime"
+					/>
 					<button
 						className="
 					dark:bg-gray-600 dark:border-slate-400 bg-green-100 border-green-800
@@ -65,7 +75,7 @@ export default function Navbar(props) {
 
 				{/* Theme Switcher */}
 				<select
-					className="p-3 cursor-pointer dark:hover:bg-cyan-600 rounded"
+					className="p-3 cursor-pointer w-28 dark:hover:bg-cyan-600 rounded"
 					value={theme}
 					onChange={(e) => setTheme(e.target.value)}
 				>
@@ -76,7 +86,7 @@ export default function Navbar(props) {
 						Light
 					</option>
 				</select>
-			</div>
+			</nav>
 		</>
 	);
 }
