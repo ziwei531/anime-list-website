@@ -54,17 +54,17 @@ export default function Navbar(props) {
 			<nav
 				className={`${
 					visible ? "top-0" : ""
-				} sticky z-50 transition-all duration-150 ease-in-out p-10 grid place-content-center place-items-center grid-cols-1 text-center gap-3 md:grid-cols-3  bg-slate-200 bg-gradient-to-r from-green-300 to-green-500 dark:from-gray-500 dark:to-gray-900`}
+				} sticky z-50 transition-all duration-150 ease-in-out p-2 md:p-10 grid place-content-center place-items-center grid-cols-1 text-center gap-3 md:grid-cols-3  bg-slate-200 bg-gradient-to-r from-green-300 to-green-500 dark:from-gray-500 dark:to-gray-900`}
 			>
 				{/* Logo */}
-				<h1 className="hover:drop-shadow-lg dark:hover:text-white sm:hover:text-5xl transition-all duration-150 ease-out sm:hover:ease-infont-semibold text-4xl text-white drop-shadow-md m-auto">
+				<h1 className="hover:drop-shadow-lg text-2xl md:text-4xl dark:hover:text-white sm:hover:text-5xl transition-all duration-150 ease-out sm:hover:ease-infont-semibold text-white drop-shadow-md m-auto">
 					<Link href="/">Anime List</Link>
 				</h1>
 
 				{/* Search Bar */}
 				<form className="flex" onSubmit={handleSubmit} autoComplete="off">
 					<input
-						className="p-3 rounded-l-md"
+						className="p-3 h-9 rounded-l-md"
 						onChange={handleChange}
 						value={value}
 						required
@@ -72,7 +72,7 @@ export default function Navbar(props) {
 					/>
 					<button
 						className="
-					dark:bg-gray-600 dark:border-slate-400 bg-green-100 border-green-500 border dark:text-slate-100 text-emerald-950
+					dark:bg-gray-600 h-9 flex items-center text-align dark:border-slate-400 bg-green-100 border-green-500 border dark:text-slate-100 text-emerald-950
 					rounded-md p-2 hover:bg-green-300 dark:hover:bg-gray-800 ease-in transition-all
 					"
 						type="submit"
@@ -83,7 +83,7 @@ export default function Navbar(props) {
 
 				{/* Theme Switcher */}
 				<select
-					className="p-3 cursor-pointer w-28 dark:hover:bg-cyan-600 rounded"
+					className="p-1 md:p-3 cursor-pointer h-10 md:w-28 dark:hover:bg-cyan-600 rounded"
 					value={theme}
 					onChange={(e) => setTheme(e.target.value)}
 				>
