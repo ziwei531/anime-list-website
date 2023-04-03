@@ -20,7 +20,7 @@ export default function AnimeDescription({ data }) {
 				<div className="pt-10 pb-10 pl-5 pr-5 md:pl-20 md:pr-20">
 					<h1 className="text-2xl">Description</h1>
 					<p className="leading-8">{ReactHtmlParser(data.Media.description)}</p>
-					<div className="flex flex-col md:flex-row text-center mt-5">
+					<div className="flex flex-col md:flex-row text-center mt-5 md:items-start">
 						<span
 							className="
 						p-3 border dark:bg-gray-600  dark:border-slate-400 
