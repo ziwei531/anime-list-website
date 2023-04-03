@@ -16,7 +16,7 @@ export default function Navbar(props) {
 	const [visible, setVisible] = useState(true);
 	const [toggle, setToggle] = useState(false);
 
-	const [width, setWidth] = useState(0);
+	const [width, setWidth] = useState(0); //manually set default as 800px, basically by default beyond mobile width
 
 	//handle navbar on resize listener
 	useEffect(() => {
@@ -80,7 +80,7 @@ export default function Navbar(props) {
 					<Link href="/">Anime List</Link>
 				</h1>
 
-				{toggle && (
+				{(toggle || width > 768) && (
 					<>
 						{/* Search Bar */}
 						<form className="flex" onSubmit={handleSubmit} autoComplete="off">
