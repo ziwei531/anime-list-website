@@ -1,9 +1,11 @@
 import { useEffect, useState, useRef } from "react";
 import { useTheme } from "next-themes";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 export default function Navbar(props) {
 	const { theme, setTheme } = useTheme();
+	const router = useRouter();
 
 	const [prevScrollPos, setPrevScrollPos] = useState(0);
 	const [visible, setVisible] = useState(true);
@@ -17,7 +19,8 @@ export default function Navbar(props) {
 			.trim()
 			.replace(/\s+/g, "-")
 			.toLowerCase();
-		console.log(`"${animeName}"`);
+		console.log(`Search Query on submit: "${animeName}"`);
+		router.push(`/search/${animeName}`);
 	};
 
 	const handleChange = (e) => {
@@ -55,7 +58,7 @@ export default function Navbar(props) {
 				</h1>
 
 				{/* Search Bar */}
-				<form className="flex" onSubmit={handleSubmit}>
+				<form className="flex" onSubmit={handleSubmit} autoComplete="off">
 					<input
 						className="p-3 rounded-l-md"
 						onChange={handleChange}
@@ -64,7 +67,7 @@ export default function Navbar(props) {
 					/>
 					<button
 						className="
-					dark:bg-gray-600 dark:border-slate-400 bg-green-100 border-green-800
+					dark:bg-gray-600 dark:border-slate-400 bg-green-100 border-green-500 border text-emerald-950
 					rounded-md p-2 hover:bg-green-300 dark:hover:bg-gray-800 ease-in transition-all
 					"
 						type="submit"
