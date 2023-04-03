@@ -16,7 +16,7 @@ export default function Navbar(props) {
 	const [visible, setVisible] = useState(true);
 	const [toggle, setToggle] = useState(false);
 
-	const [width, setWidth] = useState(800); //manually set default as 800px, basically by default beyond mobile width
+	const [width, setWidth] = useState(0);
 
 	//handle navbar on resize listener
 	useEffect(() => {
