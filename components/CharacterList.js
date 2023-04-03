@@ -30,7 +30,7 @@ export default function CharacterList({ data }) {
 									e.target.src = "../public/no_image.jpg";
 								}}
 							/>
-							<p className="name break-all p-1">
+							<p className="name text-sm text-green-950 dark:text-slate-200 font-medium break-all p-1">
 								{character.node.name.userPreferred}
 							</p>
 						</div>
@@ -39,7 +39,7 @@ export default function CharacterList({ data }) {
 
 						{character.voiceActors.length > 0 && (
 							<div className="VA">
-								<p className="name text-sm break-all p-1">
+								<p className="name text-green-950 font-medium dark:text-slate-200 text-sm break-all p-1">
 									{character.voiceActors[0].name.userPreferred}
 								</p>
 
