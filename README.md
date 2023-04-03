@@ -12,7 +12,6 @@ Technologies Used:
 It has both dark and light mode! Accomplished using tailwind
 
 # This website will have (still deciding) functionalities
-# This website will have (still deciding) functionalities
 
 - Home page. Displays all the anime available. Will include a way for users to select what they wish to view. By default, it is the trending anime option.
 - Search Function (hopefully im smart enough)
