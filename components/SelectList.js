@@ -9,8 +9,6 @@ export default function SelectList(props) {
         trending_desc = most trending to least trending
     */
 
-	//develop a for loop that loops through the 5 options for the select element
-
 	const selectRef = useRef(null);
 
 	function handleOption(e) {
