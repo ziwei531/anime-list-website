@@ -3,6 +3,7 @@ import ReactHtmlParser from "react-html-parser";
 
 function capitalizeCorrection(str) {
 	str = str.toLowerCase();
+	str = str.replace(/_/g, " ");
 	return str.charAt(0).toUpperCase() + str.slice(1);
 }
 
