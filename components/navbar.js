@@ -8,12 +8,14 @@ export default function Navbar(props) {
 	const router = useRouter();
 
 	const [prevScrollPos, setPrevScrollPos] = useState(0);
+	const [value, setValue] = useState("");
 	const [visible, setVisible] = useState(true);
 
 	const searchRef = useRef(null);
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
+
 		props.search(searchRef.current);
 		const animeName = searchRef.current
 			.trim()
@@ -21,10 +23,12 @@ export default function Navbar(props) {
 			.toLowerCase();
 		console.log(`Search Query on submit: "${animeName}"`);
 		router.push(`/search/${animeName}`);
+		setValue("");
 	};
 
 	const handleChange = (e) => {
 		searchRef.current = e.target.value;
+		setValue(e.target.value);
 	};
 
 	const handleScroll = () => {
@@ -62,12 +66,13 @@ export default function Navbar(props) {
 					<input
 						className="p-3 rounded-l-md"
 						onChange={handleChange}
+						value={value}
 						required
 						placeholder="Search Anime"
 					/>
 					<button
 						className="
-					dark:bg-gray-600 dark:border-slate-400 bg-green-100 border-green-500 border text-emerald-950
+					dark:bg-gray-600 dark:border-slate-400 bg-green-100 border-green-500 border dark:text-slate-100 text-emerald-950
 					rounded-md p-2 hover:bg-green-300 dark:hover:bg-gray-800 ease-in transition-all
 					"
 						type="submit"
