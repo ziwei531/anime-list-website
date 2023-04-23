@@ -19,6 +19,7 @@ export default function App({ Component, pageProps }) {
 						content="A Simple Anime List Application. Developed by Whoong Zi Wei"
 						key="desc"
 					/>
+					<meta name="mobile-web-app-capable" content="yes"></meta>
 				</Head>
 				<Navbar search={setSearch} />
 				<Component {...pageProps} search={search} />
